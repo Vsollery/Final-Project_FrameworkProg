@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -11,7 +12,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('tasks.todos.index');
+        return view('tasks.todos.index',[
+            'tasks' => Task::all()
+        ]);
     }
 
     /**

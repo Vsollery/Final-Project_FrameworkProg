@@ -2,8 +2,10 @@
 
 @section('container')
 
-    <h1>DASHBOARD</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Your Tasks Status</h1>
+</div>
 
-    <h4>Status of your tasks</h4>
+
 
 @endsection

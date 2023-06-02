@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::get('dashboard', function(){
     return view('tasks.index');
 });
+
+Route::resource('/dashboard/mytasks',TodoController::class);
