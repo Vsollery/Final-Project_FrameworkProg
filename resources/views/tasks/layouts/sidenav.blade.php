@@ -14,13 +14,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/">
+                <a class="nav-link " href="/dashboard/mytasks/finished">
                     <span data-feather="compass" class="align-text-bottom"></span>
                     Finished
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/">
+                <a class="nav-link " href="/dashboard/mytasks/unfinished">
                     <span data-feather="compass" class="align-text-bottom"></span>
                     Unfinished
                 </a>

@@ -24,4 +24,6 @@ Route::get('dashboard', function(){
     return view('tasks.index');
 });
 
+Route::get('/dashboard/mytasks/finished',[TodoController::class, 'finished']);
+Route::get('/dashboard/mytasks/unfinished',[TodoController::class, 'unfinished']);
 Route::resource('/dashboard/mytasks',TodoController::class);

@@ -64,4 +64,18 @@ class TodoController extends Controller
     {
         //
     }
+
+    public function finished(){
+        $tasks = Task::where('is_completed', 1)->get();
+        return view('tasks.todos.finished',[
+            'tasks' => $tasks
+        ]);
+    }
+
+    public function unfinished(){
+        $tasks = Task::where('is_completed', 0)->get();
+        return view('tasks.todos.unfinished',[
+            'tasks' => $tasks
+        ]);
+    }
 }
