@@ -8,20 +8,20 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/dashboard/mytasks">
-                    <span data-feather="file" class="align-text-bottom"></span>
+                <a class="nav-link" href="/dashboard/mytasks">
+                    <span data-feather="list" class="align-text-bottom"></span>
                     My Tasks
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/dashboard/mytasks/finished">
-                    <span data-feather="compass" class="align-text-bottom"></span>
+                    <span data-feather="check-square" class="align-text-bottom"></span>
                     Finished
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/dashboard/mytasks/unfinished">
-                    <span data-feather="compass" class="align-text-bottom"></span>
+                    <span data-feather="x-square" class="align-text-bottom"></span>
                     Unfinished
                 </a>
             </li>

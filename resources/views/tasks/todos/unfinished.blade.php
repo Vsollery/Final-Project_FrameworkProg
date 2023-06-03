@@ -21,7 +21,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $task->title }}</td>
                 <td>
-                    unfinished
+                    Unfinished
                 </td>
                 <td>
                     <a href="/dashboard/posts/{{ $task->id }}" class="badge bg-primary"> <span data-feather="eye" class="align-text-bottom"></span></a>
