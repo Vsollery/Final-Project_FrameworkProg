@@ -33,9 +33,7 @@
                                 @csrf
                                 <button class="badge bg-success border-0" onclick= "return confirm ('Finish this task?')"><span data-feather="check"
                                     class="align-text-bottom"></span>
-
                                 </button>
-
                             </form>
                             {{-- <a href="/" class="badge bg-success"><span data-feather="check"
                                     class="align-text-bottom"></span></i></a> --}}
