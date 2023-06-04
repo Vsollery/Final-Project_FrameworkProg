@@ -1,4 +1,4 @@
-@extends('tasks.layouts.main')
+@extends('layouts.main')
 
 @section('container')
 
