@@ -1,6 +1,6 @@
 <p align="center">
   <!-- <img height="200" src=""> -->
-  <i>![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/117e7eec-a5fd-452a-b661-64f3bbb51cd1)</i>
+  
 </p>
 
 ---------------------------------------
