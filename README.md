@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-    <small>Venia Sollery Aliyya Hasna · Muhammad Fatih Akbar · Rangga Aulia Pradana · Erlangga Wahyu Utomo</small>
+    <small>Venia Sollery Aliyya Hasna · Muhammad Fatih Akbar · Rangga Aulia Pradana · Erlangga Wahyu Utomo · Teuku auli azhar</small>
 </p>
 
 <p align="center">
@@ -45,23 +45,25 @@
 
 ## Installation
 
-First makes sure Node.js are installed, then in the app directory run
+First makes sure Node.js are installed, then in the app directory run the command below in a new terimal window.
 
 ```sh
 npm install && npm run dev
 ```
 
-Then make an .env file by creating manually or run the following command
+Secondly, open up a second terminal and to install all of the needed dependencies, make sure you have Composerly installed and run the following command
+
+```sh
+composer install
+```
+
+Then create an `.env` file by creating manually. Copy the contents of `.env.examples` into the created file. Inside of the .env file, change the `DB_DATABASE`, into `DB_DATABASE=to_do`. This will prevent the app from using the default database.
+
+Run you database server, as an example the MySQL server in XAMPP, then migrate and seed the database by running the following commands
 
 ```sh
 php artisan key:generate
-```
-
-Inside of the .env file, change the `DB_DATABASE`, into `DB_DATABASE=to_do`. This will prevent the app from using the default database.
-
-Run you database server, as an example the MySQL server in XAMPP, then migrate and seed the database by running the following
-
-```sh
+php artisan migrate
 php artisan migrate:fresh --seed
 ```
 
