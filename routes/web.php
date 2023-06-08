@@ -35,18 +35,5 @@ Route::get('dashboard', function(){
 
 Route::get('/dashboard/mytasks/finished',[TodoController::class, 'finished']);
 Route::get('/dashboard/mytasks/unfinished',[TodoController::class, 'unfinished']);
+Route::post('/dashboard/mytasks/{id}',[TodoController::class, 'checklist']);
 Route::resource('/dashboard/mytasks',TodoController::class);
-
-Route::post('/dashboard/mytasks/{id}',function(Request $request){
-    // dd($request);
-    $id = $request->id;
-    $task = Task::where('id', '=', ($id))->first();
-    // dd($task);
-    if ($task) {
-        $task->is_completed = 1;
-        $task->save();
-        return redirect('/dashboard/mytasks');
-    }
-    
-
-});

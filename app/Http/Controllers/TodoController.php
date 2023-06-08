@@ -80,4 +80,16 @@ class TodoController extends Controller
             'tasks' => $tasks
         ]);
     }
+
+    public function checklist(Request $request)
+    {
+        $id = $request->id;
+        $task = Task::where('id', '=', ($id))->first();
+        // dd($task);
+        if ($task) {
+            $task->is_completed = 1;
+            $task->save();
+            return back();
+        }
+    }
 }
