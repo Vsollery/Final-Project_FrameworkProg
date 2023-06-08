@@ -36,9 +36,11 @@ class TodoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Task $mytask)
     {
-        //
+        return view('tasks.todos.show', [
+            'task' => $mytask
+        ]);
     }
 
     /**

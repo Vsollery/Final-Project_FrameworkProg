@@ -37,7 +37,7 @@
                             </form>
                             {{-- <a href="/" class="badge bg-success"><span data-feather="check"
                                     class="align-text-bottom"></span></i></a> --}}
-                            <a href="/" class="badge bg-primary"> <span data-feather="eye"
+                            <a href="/dashboard/mytasks/{{ $task->id }}" class="badge bg-primary"> <span data-feather="eye"
                                     class="align-text-bottom"></span></a>
                             <a href="/" class="badge bg-warning"> <span data-feather="edit"
                                     class="align-text-bottom"></span></a>
