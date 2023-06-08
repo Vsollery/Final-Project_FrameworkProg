@@ -22,6 +22,13 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/about', function () {
+    return view('about',[
+        "title" => "about"
+    ]);
+});
+
+
 Route::get('dashboard', function(){
     return view('tasks.index');
 });
