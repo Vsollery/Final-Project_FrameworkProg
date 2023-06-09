@@ -42,3 +42,4 @@ Route::resource('/dashboard/mytasks',TodoController::class);
 Route::get('/register', [UserController::class, 'create']);
 Route::post('/register',[UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'login']);
+Route::post('/login',[UserController::class, 'authenticate']);

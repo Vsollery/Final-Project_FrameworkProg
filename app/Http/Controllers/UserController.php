@@ -26,7 +26,7 @@ class UserController extends Controller
         $user = User::create($validatedData);
         auth()->login($user);
 
-        return redirect('/')->with('success', 'User created and logged in');
+        return redirect('/')->with('message', 'User Created and Logged In');
         
     }
 
@@ -34,5 +34,21 @@ class UserController extends Controller
         return view('users.login',[
             'title' => 'Login',
         ]);
+    }
+
+    public function authenticate(Request $request){
+        $formField = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']       
+        ]);
+
+        if(auth()->attempt($formField)){
+            $request->session()->regenerate();
+            
+            return redirect('/')->with('message', 'User logged in');
+        }
+
+        // return back()->with('message', 'Login Failed.');
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 }
