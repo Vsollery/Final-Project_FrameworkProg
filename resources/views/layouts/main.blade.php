@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>TO DO | {{ $title }}</title>
+     <!-- Scripts -->
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <title>whatodo | {{ $title }}</title>
 </head>
 <body>
     @include('partials.navbar')
