@@ -16,6 +16,14 @@
             <li class="nav-item">
                 <a class="nav-link " href="/dashboard">Your Tasks</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/discover">Discover</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item">
+                <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+            </li>
         </ul>
     </div>
 </nav>
