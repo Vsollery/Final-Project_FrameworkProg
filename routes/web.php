@@ -4,6 +4,7 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::get('/dashboard/mytasks/finished',[TodoController::class, 'finished']);
 Route::get('/dashboard/mytasks/unfinished',[TodoController::class, 'unfinished']);
 Route::post('/dashboard/mytasks/{id}',[TodoController::class, 'checklist']);
 Route::resource('/dashboard/mytasks',TodoController::class);
+
+Route::get('/register', [UserController::class, 'create']);
+Route::get('/login', [UserController::class, 'login']);
