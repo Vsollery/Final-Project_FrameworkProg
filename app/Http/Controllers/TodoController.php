@@ -46,25 +46,34 @@ class TodoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Task $mytask)
     {
-        //
+        return view('tasks.todos.edit', [
+            'task' => $mytask,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Task $mytask)
     {
-        //
+        $formFields = $request->validate([
+            'title' => 'required|max:200',
+            'description' => ['required', 'max:1000']
+        ]);
+
+        $mytask->update($formFields);
+        return redirect('/dashboard/mytasks')->with('message', 'Task Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Task $mytask)
     {
-        //
+        $mytask->delete();
+        return redirect('/dashboard/mytasks')->with('message', 'Task Deleted');
     }
 
     public function finished(){
