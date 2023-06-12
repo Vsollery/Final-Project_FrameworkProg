@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
@@ -29,9 +30,24 @@ Route::get('/about', function () {
     ]);
 });
 
-
 Route::get('dashboard', function(){
     return view('tasks.index');
+});
+
+Route::get('/discover', function () {
+    return view('discover',[
+        "title" => "Discover",
+        "users" => User::latest()->paginate(3)->withQueryString()
+    ]);
+});
+
+Route::get('/discover/{user}', function (User $user) {
+    // dd($user);
+    return view('show',[
+        "title" => "Discover",
+        "user" => $user,
+        "tasks" => Task::where('user_id', $user->id)->get()
+    ]);
 });
 
 Route::get('/dashboard/mytasks/finished',[TodoController::class, 'finished']);
