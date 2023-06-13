@@ -6,10 +6,11 @@
         </main>
 
         <h5 class="text-white m-3">Group 1</h5>
-        <p class="text-white m-3">Member 1</p>
-        <p class="text-white m-3">Member 2</p>
-        <p class="text-white m-3">Member 3</p>
-        <p class="text-white m-3">Member 4</p>
+        <p class="text-white m-3">Muhammad Fatih Akbar - 5025201117</p>
+        <p class="text-white m-3">Venia Sollery Aliyya Hasna - 5025201161</p>
+        <p class="text-white m-3"> Erlangga Wahyu Utomo - 5025201118</p>
+        <p class="text-white m-3">Rangga Aulia Pradana - 5025201154</p>
+        <p class="text-white m-3"> Teuku Auli Azhar - 5025201142</p>
 
         <div>
             <a href="/login" class="btn btn-lg btn-secondary btn-inline mt-3">Login</a>
