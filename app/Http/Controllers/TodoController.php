@@ -90,6 +90,10 @@ class TodoController extends Controller
         return back()->with('message', 'Task Deleted');
     }
 
+    public function dashboard(){
+        return view('tasks.index');
+    }
+
     public function finished(){
         $tasks = auth()->user()->tasks()->where('is_completed', 1)->latest()->get();
         return view('tasks.todos.finished',[

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralController;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,41 +20,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('home',[
-        "title" => "Home",
-        "active" => 'home'
-    ]);
-});
+Route::get('/',[GeneralController::class,'index']);
+Route::get('/about',[GeneralController::class,'about']);
+Route::get('/discover', [GeneralController::class,'discover']);
 
-Route::get('/about', function () {
-    return view('about',[
-        "user" => Auth::user(),
-        "title" => "about",
-        "active" => 'about'
-    ]);
-});
+Route::get('/dashboard',[TodoController::class, 'dashboard']);
 
-Route::get('dashboard', function(){
-    return view('tasks.index');
-})->middleware('auth');
-
-Route::get('/discover', function () {
-    return view('discover',[
-        "title" => "Discover",
-        "active" => 'discover',
-        "users" => User::latest()->paginate(3)->withQueryString()
-    ]);
-});
-
-Route::get('/discover/{user}', function (User $user) {
-    // dd($user);
-    return view('show',[
-        "title" => "Discover",
-        "user" => $user,
-        "tasks" => Task::where('user_id', $user->id)->get()
-    ]);
-});
+Route::get('/discover/{user}', [GeneralController::class, 'show']); 
 
 Route::get('/dashboard/mytasks/finished',[TodoController::class, 'finished']);
 Route::get('/dashboard/mytasks/unfinished',[TodoController::class, 'unfinished']);
