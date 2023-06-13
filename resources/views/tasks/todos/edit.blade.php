@@ -12,7 +12,7 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input name="title" type="text" class="form-control @error('judul') is-invalid @enderror" id="title"
-                    value="">
+                    value="{{ $task->title }}">
                 @error('title')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -20,7 +20,7 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="10"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="10">{{ $task->description }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror

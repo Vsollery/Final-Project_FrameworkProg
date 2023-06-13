@@ -3,6 +3,7 @@
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
@@ -20,23 +21,27 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home',[
-        "title" => "Home"
+        "title" => "Home",
+        "active" => 'home'
     ]);
 });
 
 Route::get('/about', function () {
     return view('about',[
-        "title" => "about"
+        "user" => Auth::user(),
+        "title" => "about",
+        "active" => 'about'
     ]);
 });
 
 Route::get('dashboard', function(){
     return view('tasks.index');
-});
+})->middleware('auth');
 
 Route::get('/discover', function () {
     return view('discover',[
         "title" => "Discover",
+        "active" => 'discover',
         "users" => User::latest()->paginate(3)->withQueryString()
     ]);
 });
@@ -57,5 +62,6 @@ Route::resource('/dashboard/mytasks',TodoController::class);
 
 Route::get('/register', [UserController::class, 'create']);
 Route::post('/register',[UserController::class, 'store']);
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login',[UserController::class, 'authenticate']);
+Route::post('/logout',[UserController::class, 'logout'])->middleware('auth');

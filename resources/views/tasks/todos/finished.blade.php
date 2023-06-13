@@ -22,18 +22,16 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $task->title }}</td>
                             <td>
-                                Finished
+                                <span class="badge bg-success">Finished</span>
                             </td>
                             <td>
                                 <a href="/dashboard/mytasks/{{ $task->id }}" class="badge bg-primary"> <span
                                         data-feather="eye" class="align-text-bottom"></span></a>
-                                <a href="/dashboard/mytasks/{{ $task->id }}/edit" class="badge bg-warning"> <span
-                                        data-feather="edit" class="align-text-bottom"></span></a>
                                 <form action="/dashboard/mytasks/{{ $task->id }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="badge bg-danger border-0"
-                                        onclick="return confirm('Are you sure you want to delet this task?')"><span
+                                        onclick="return confirm('Are you sure you want to delete this task?')"><span
                                             data-feather="trash" class="align-text-bottom"></span></button>
                                 </form>
 
@@ -47,6 +45,11 @@
                 @endunless
             </tbody>
         </table>
+        @if (session()->has('message'))
+            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="alert alert-success" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
     </div>
 
 @endsection

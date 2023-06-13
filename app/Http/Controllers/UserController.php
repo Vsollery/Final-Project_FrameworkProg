@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function create(){
         return view('users.register',[
+            'active' => 'register',
             'title' => 'Register'
         ]);
     }
@@ -32,6 +34,7 @@ class UserController extends Controller
 
     public function login(){
         return view('users.login',[
+            'active' => 'login',
             'title' => 'Login',
         ]);
     }
@@ -50,5 +53,14 @@ class UserController extends Controller
 
         // return back()->with('message', 'Login Failed.');
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

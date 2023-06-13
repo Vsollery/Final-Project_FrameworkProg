@@ -8,22 +8,44 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link {{ ($active === 'home') ? 'active' : ''}}" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/about">About</a>
+                <a class="nav-link {{ ($active === 'about') ? 'active' : ''}}" href="/about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/dashboard">Your Tasks</a>
+                <a class="nav-link {{ Request::is('discover*')? 'active' : '' }}" href="/discover">Discover</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/discover">Discover</a>
-            </li>
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link " href="/dashboard">Your Tasks</a>
+                </li>
+            @endauth
         </ul>
         <ul class="navbar-nav ml-auto mr-5">
-            <li class="nav-item">
-                <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
-            </li>
+            @auth
+                <ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome back, {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/dashboard"><i class="bi bi-clipboard-fill"></i> Dashboard</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i>
+                                    Logout</button>
+                            </form>
+
+                        </div>
+                    </li>
+                </ul>
+            @else
+                <li class="nav-item">
+                    <a href="/login" class="nav-link {{ ($active === 'login') ? 'active' : ''}}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                </li>
+            @endauth
         </ul>
     </div>
 </nav>

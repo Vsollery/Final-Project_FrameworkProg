@@ -10,10 +10,15 @@ class TodoController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('tasks.todos.index',[
-            'tasks' => Task::all()
+            'tasks' => Task::latest()->where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -30,7 +35,16 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'title' => 'required | max: 200',
+            'description' => ['required', 'max:1000']
+        ]);
+
+        $formFields['user_id'] = auth()->user()->id;
+        // $formFields['user_id'] = 1;
+        Task::create($formFields);
+
+        return redirect('/dashboard/mytasks')->with('message', 'New Task Added Successfully!');
     }
 
     /**
@@ -73,19 +87,19 @@ class TodoController extends Controller
     public function destroy(Task $mytask)
     {
         $mytask->delete();
-        return redirect('/dashboard/mytasks')->with('message', 'Task Deleted');
+        return back()->with('message', 'Task Deleted');
     }
 
     public function finished(){
-        $tasks = Task::where('is_completed', 1)->get();
+        $tasks = auth()->user()->tasks()->where('is_completed', 1)->latest()->get();
         return view('tasks.todos.finished',[
             'tasks' => $tasks
         ]);
     }
 
     public function unfinished(){
-        $tasks = Task::where('is_completed', 0)->get();
-        return view('tasks.todos.unfinished',[
+        $tasks = auth()->user()->tasks()->where('is_completed', 0)->latest()->get();
+        return view('tasks.todos.unfinished', [
             'tasks' => $tasks
         ]);
     }
@@ -98,7 +112,7 @@ class TodoController extends Controller
         if ($task) {
             $task->is_completed = 1;
             $task->save();
-            return back();
+            return back()->with('message','Task Completed');
         }
     }
 }
