@@ -1,8 +1,8 @@
 @extends('layouts.main')
 @section('container')
-    <div class="card-body text-center bg-info rounded mb-3">
+    <div class="card-body text-center bg-dark rounded mb-3">
         <main role="main" class="inner cover">
-            <h1 class="card-title text-white">Welcome to Whatodo web application</h1>
+            <h1 class="card-title font-weight-bold text-white">Welcome to Whatodo web application</h1>
         </main>
 
         <h5 class="text-white m-3">Group 1</h5>

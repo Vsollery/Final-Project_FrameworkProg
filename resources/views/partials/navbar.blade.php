@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
-    <a class="navbar-brand ml-5" href="/">TO DO</a>
+    <a class="navbar-brand ml-5" href="/"><img src="/images/logo.png" style="width: 100px;" /></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
