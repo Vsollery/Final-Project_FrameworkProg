@@ -76,6 +76,55 @@ php artisan serve
 ## Usage
 
 Tambahin Screenshot Serta jelasin fungsi page tersebut
+home
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/794f9b57-dd3b-4804-b83d-216221b633dc)
+register
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/48b1fea2-2722-4492-9ea1-42bb8ae839c8)
+login
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/75980eac-1cf6-4d25-991f-820a3f0e3460)
+after login
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/6b98c3a2-6180-46b1-b058-c5fec79271ea)
+adding new task
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/834c81d4-b3d1-41e7-8d92-cb2b937db85a)
+after adding
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/0a378f95-6312-4276-9246-38312c8aff14)
+task details + edit
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/a107face-24f6-4e4b-a16a-f1b66892309d)
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/ed06d9d2-8e3e-4781-aa57-a11a9b9645ce)
+
+
+complete the task
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/c5f4539b-f705-49ae-8e98-327edcf08d8f)
+
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/73044b4d-d25a-4ea9-b823-885a5ef6ef52)
+
+dashboard updated
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/1388d5ae-840d-49dc-a699-6711ba6aa424)
+
+account details
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/54c97a0f-6bca-4d9e-bdfe-0bb6a3a6c739)
+
+discover page
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/40aaa03b-9a65-4efb-ad2d-a11a00ddf530)
+
+admin page
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/b8c6eed8-b248-40d3-8dd4-fd09372f3973)
+admin changing role of user
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/cdae984c-1e94-4735-a042-0594cd810c88)
+
+admin delete user
+![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/4efae180-fb8a-4d2c-8b7a-5c5ca601f33a)
+
+
+
+
+
+
+
+
+
+
+
 
 ### Roles Use Case
 
