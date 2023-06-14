@@ -185,6 +185,19 @@ For the function in tasks, the user can have task more than one
 - [**Product**](/blog/app/Models/Product.php)<br>
 This entity contains the name and detail of a product that interchangeable. Not much else goes here.
 
+```
+protected $guarded =['id'];
+    protected $fillable = ['title', 'description', 'user_id'];
+```
+Protected function to use in ID with the guarded statement that executes code in a body only.
+You can fill the title, description. And it added by user_id
+
+```
+public function user(){
+        return $this->belongsTo(User::class);
+```
+The function in user that has belongsTo relation. belongsTo reaction is to sent back into user
+
 ### Controllers
 
 Overall this project contains four controllers, which are all an extension of [**Controller**](/app/Http/Controllers/Controller.php), an extension of the BaseController with additional Middlewares such as `AuthorizeRequests` and `ValidateRequests`. The controllers are as follows:
