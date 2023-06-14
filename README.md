@@ -75,12 +75,183 @@ php artisan serve
 
 ## Usage
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus est nisl, eget commodo nulla placerat in. Sed tincidunt at purus eget pretium. Suspendisse non urna eros. Pellentesque a finibus lectus. Vivamus lorem dolor, consectetur quis laoreet vel, facilisis in eros. Etiam non risus sed lorem cursus faucibus id quis purus. Donec at ligula magna. Sed non pellentesque eros, in feugiat nulla. Proin ornare arcu turpis, efficitur facilisis tortor efficitur sit amet. Morbi id pretium dui. In hac habitasse platea dictumst. Praesent sed fringilla est. Quisque ornare nisl at dictum cursus. Curabitur auctor felis et enim elementum porta. Etiam quis rhoncus eros. Donec fermentum egestas neque in fermentum.
+Tambahin Screenshot Serta jelasin fungsi page tersebut
 
-## References
+### Roles Use Case
 
-+ lorem
-+ ipsum
-+ dolor
-+ sit
-+ amet
+As an example, you can assign the role to the followings for a typical warehouse management system:
+
+| Role             | Permissions                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| Admin            | role-list, role-create, role-edit, role-delete, product-list, product-create, product-edit, product-delete |
+| Role Manager     | role-list, role-create, role-edit, role-delete                                                             |
+| Role Observer    | role-list                                                                                                  |
+| Product Manager  | product-list, product-create, product-edit, product-delete                                                 |
+| Product Observer | product-list                                                                                               |
+
+More or less each role use cases are as follows:
+
+- **Admins** should have full access to all the system permissions, starting from manipulating user, roles, and products.
+- **Role Managers** should have full control over all actions relating to roles in the system.
+- **Role Observers** should have access to viewing the types of role in the system, but not action relating to its manipulation.
+- **Product Managers** should have full control over all actions relationg to products in the system.
+- **Product Observers** should have access to viewing the types of products in the system, but not action relating to its manipulation.
+
+## Breakdown
+
+### Entities
+
+This project contains two entities/models, which as below. You can also click on the hyperlinks to see the code a closer look.
+
+- [**User**](/blog/app/Models/User.php)<br>
+This entity contains datas relating to authentication such as name, email, and password. This entity also has role attribute which used to differentiate role between users for different permissions.
+
+- [**Product**](/blog/app/Models/Product.php)<br>
+This entity contains the name and detail of a product that interchangeable. Not much else goes here.
+
+### Controllers
+
+Overall this project contains four controllers, which are all an extension of [**Controller**](/blog/app/Http/Controllers/Controller.php), an extension of the BaseController with additional Middlewares such as `AuthorizeRequests` and `ValidateRequests`. The controllers are as follows:
+
+- [**HomeController**](/blog/app/Models/User.php)<br>
+This controller functions to check wether the user has been authenticated/logged using the `\App\Http\Middleware\Authenticate` middleware whenever a user try to access the Homepage, providing access to all autheticated users.
+
+- [**ProductController**](/blog/app/Models/User.php)<br>
+This controller handles actions relating to the manipulation of the data of a **Product** entity such as the **creation, storing, showing, editing, updating, and deletion** of it from a given request. This controller also contains the use of a couple of `\Spatie\Permission\Middlewares\PermissionMiddleware` middlewares that checks the user's permissions on what action they are allowed to do in the product page.
+
+- [**RoleController**](/blog/app/Models/User.php)<br>
+This controller handles actions relating to the manipulation of the data of a **Role** such as the **creation, storing, showing, editing, updating, and deletion** of a role from a given request. Like the previous, this controller also contains the use of a couple of `\Spatie\Permission\Middlewares\PermissionMiddleware` middlewares that checks the user's permissions on what action they are allowed to do in the role manager page.
+
+- [**UserController**](/blog/app/Models/User.php)<br>
+Similar to the previous two controllers, this controller handles actions relating to the manipulation of the data of a **User** entity such as the **creation, storing, showing, editing, updating, and deletion** of it from a given request. This controller also contains the use of a couple of `\Spatie\Permission\Middlewares\PermissionMiddleware` middlewares that checks the user's permissions on what action they are allowed to do in the user page.
+
+### Middlewares
+
+Though there are a lot of middlewares that are used in this project, the three main ones are as follows:
+
+```php
+...
+protected $middlewareAliases = [
+    ...
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+];
+...
+```
+
+- **role**
+- **permission**
+- **role_or_permission**
+
+these middlewares handle the multirole and permision management capability of the project.
+
+### Database
+
+Overall the main database used in this project consist of 7 tables. The tables Are as follows:
+
+#### 1. users
+
+The users table stores the attributes of the **User** entity. Contains 8 attributes.
+
+| Name              | Type         | Description                    |
+| ----------------- | ------------ | ------------------------------ |
+| id                | bigint(20)   | The user's id number           |
+| name              | varchar(255) | The user's username            |
+| email             | varchar(255) | The user's email address       |
+| email_verified_at | timestamp    | When was the email verified    |
+| password          | varchar(255) | The user's password            |
+| remember_token    | varchar(100) | The user's remember token      |
+| created_at        | timestamp    | When was the user created      |
+| updated_at        | timestamp    | When was the user last updated |
+
+#### 2. roles
+
+The roles table store the attributes for the different types of **roles**. Contains 5 attributes.
+
+| Name       | Type         | Description                    |
+| ---------- | ------------ | ------------------------------ |
+| id         | bigint(20)   | The role id number             |
+| name       | varchar(255) | The role name                  |
+| guard_name | varchar(255) | The role user-agent            |
+| created_at | timestamp    | When was the role created      |
+| updated_at | timestamp    | When was the role last updated |
+
+#### 3. products
+
+The products table stores the attributes of the **Product** entity. Contains 5 attributes.
+
+| Name       | Type         | Description                       |
+| ---------- | ------------ | --------------------------------- |
+| id         | bigint(20)   | The product's id number           |
+| name       | varchar(255) | The product's name                |
+| detail     | text         | The product details               |
+| created_at | timestamp    | When was the product created      |
+| updated_at | timestamp    | When was the user product updated |
+
+#### 4. permissions
+
+The permissions table store the attributes for the different types of **permissions**. Contains 5 attributes.
+
+| Name       | Type         | Description                          |
+| ---------- | ------------ | ------------------------------------ |
+| id         | bigint(20)   | The permission id number             |
+| name       | varchar(255) | The permission name                  |
+| guard_name | varchar(255) | The permission user-agent            |
+| created_at | timestamp    | When was the permission created      |
+| updated_at | timestamp    | When was the permission last updated |
+
+#### 5. roles_has_permissions
+
+The permissions table is an intermediary between the **permissions table** and **role table**, to define what role has what permissions. Contains 2 attributes.
+
+| Name          | Type       | Description              |
+| ------------- | ---------- | ------------------------ |
+| permission_id | bigint(20) | The permission id number |
+| role_id       | bigint(20) | The role's id number     |
+
+### 6. models_has_roles
+
+The permissions table is an intermediary between the **users table** and **role table**, to define what users has what roles. Contains 3 attributes.
+
+| Name       | Type         | Description          |
+| ---------- | ------------ | -------------------- |
+| role_id    | bigint(20)   | The role's id number |
+| model_type | varchar(255) | The model type       |
+| model_id   | bigint(20)   | The user's id number |
+
+#### 7. models_has_permissions
+
+The permissions table is an intermediary between the **users table** and **permissions table**, to define what users has what permissions. Contains 3 attributes.
+
+| Name          | Type         | Description              |
+| ------------- | ------------ | ------------------------ |
+| permission_id | bigint(20)   | The permission id number |
+| model_type    | varchar(255) | The model type           |
+| model_id      | bigint(20)   | The user's id number     |
+
+### External Interfaces
+
+#### Data Access Interface
+This refers to the database mentioned earlier.
+
+#### User Interfaces
+These are the views located in the resources folder. The project includes multiple different views, including:
+
++ **Theme Layout**
+  - app.blade.php
++ **User Module**
+  - index.blade.php
+  - create.blade.php
+  - edit.blade.php
+  - show.blade.php
++ **Roles Module**
+  - index.blade.php
+  - create.blade.php
+  - edit.blade.php
+  - show.blade.php
++ **Product Module**
+  - index.blade.php
+  - create.blade.php
+  - edit.blade.php
+  - show.blade.php
