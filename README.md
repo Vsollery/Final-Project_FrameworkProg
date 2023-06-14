@@ -160,19 +160,19 @@ This entity contains the name and detail of a product that interchangeable. Not 
 
 ### Controllers
 
-Overall this project contains four controllers, which are all an extension of [**Controller**](/blog/app/Http/Controllers/Controller.php), an extension of the BaseController with additional Middlewares such as `AuthorizeRequests` and `ValidateRequests`. The controllers are as follows:
+Overall this project contains four controllers, which are all an extension of [**Controller**](/app/Http/Controllers/Controller.php), an extension of the BaseController with additional Middlewares such as `AuthorizeRequests` and `ValidateRequests`. The controllers are as follows:
 
-- [**HomeController**](/blog/app/Models/User.php)<br>
-This controller functions to check wether the user has been authenticated/logged using the `\App\Http\Middleware\Authenticate` middleware whenever a user try to access the Homepage, providing access to all autheticated users.
+- [**AdminController**](/app/Http/Controllers/AdminController.php)<br>
+This controller functions to check wether the user is an authorized administrator using  the `\App\Http\Middleware\isAdmin.php` middleware whenever a user try to access the Admin page, providing access to all user with the administrator role. This Controller also provides administrative actions for the admins such as manipulating the **User** entity to change its admin role status and delete users.
 
-- [**ProductController**](/blog/app/Models/User.php)<br>
-This controller handles actions relating to the manipulation of the data of a **Product** entity such as the **creation, storing, showing, editing, updating, and deletion** of it from a given request. This controller also contains the use of a couple of `\Spatie\Permission\Middlewares\PermissionMiddleware` middlewares that checks the user's permissions on what action they are allowed to do in the product page.
+- [**GeneralController**](/app/Http/Controllers/GeneralController.php)<br>
+This controller handle requests regarding to general pages, which are pages that anyone one can seee such as **Homepage, About Page, Discover Page, and Show Page**. Overall, it control which page is currently active and change texts & strings accordingly.
 
-- [**RoleController**](/blog/app/Models/User.php)<br>
-This controller handles actions relating to the manipulation of the data of a **Role** such as the **creation, storing, showing, editing, updating, and deletion** of a role from a given request. Like the previous, this controller also contains the use of a couple of `\Spatie\Permission\Middlewares\PermissionMiddleware` middlewares that checks the user's permissions on what action they are allowed to do in the role manager page.
+- [**TodoController**](/app/Http/Controllers/TodoController.php)<br>
+This controller handles actions and requests relating to the  **Task** entity as in its manipulations such as **creation, storing, showing, editing, updating, deletion, and checklisting** of a task from a given request, and controlling pages such as **Dashboard page, Finished Tasks Page, and Unfinished Tasks Page**. This controller contains the use of `\App\Http\Middleware\Authenticate.php` middleware that checks the user is authenticated to view the pages.
 
-- [**UserController**](/blog/app/Models/User.php)<br>
-Similar to the previous two controllers, this controller handles actions relating to the manipulation of the data of a **User** entity such as the **creation, storing, showing, editing, updating, and deletion** of it from a given request. This controller also contains the use of a couple of `\Spatie\Permission\Middlewares\PermissionMiddleware` middlewares that checks the user's permissions on what action they are allowed to do in the user page.
+- [**UserController**](/app/Http/Controllers/UserController.php)<br>
+This controller handles actions relating to the manipulation and validation regarding to the **User** entity such as the **creation, storing, authentication, logging in, and logging out** of it from a given request.
 
 ### Middlewares
 
