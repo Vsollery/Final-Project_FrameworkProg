@@ -195,87 +195,37 @@ these middlewares handle the multirole and permision management capability of th
 
 ### Database
 
-Overall the main database used in this project consist of 7 tables. The tables Are as follows:
+Overall the main database used in this project consist of 2 tables. The tables Are as follows:
 
 #### 1. users
 
-The users table stores the attributes of the **User** entity. Contains 8 attributes.
+The users table stores the attributes of the **User** entity. Contains 9 attributes.
 
-| Name              | Type         | Description                    |
-| ----------------- | ------------ | ------------------------------ |
-| id                | bigint(20)   | The user's id number           |
-| name              | varchar(255) | The user's username            |
-| email             | varchar(255) | The user's email address       |
-| email_verified_at | timestamp    | When was the email verified    |
-| password          | varchar(255) | The user's password            |
-| remember_token    | varchar(100) | The user's remember token      |
-| created_at        | timestamp    | When was the user created      |
-| updated_at        | timestamp    | When was the user last updated |
+| Name              | Type         | Description                          |
+| ----------        | ------------ | ------------------------------------ |
+| id                | bigint(20)   | The permission id number             |
+| name              | varchar(255) | The permission name                  |
+| email             | varchar(255) | The user's email address             |
+| email_verified_at | timestamp    | When was the email verified          |
+| password         | varchar(255)  | The user's password                  |
+| is_admin          | tinyint(1)   | When was the permission last updated |
+| remember_token    | varchar(100) | The user's remember token            |
+| created_at        | timestamp    | When was the user created            |
+| updated_at        | timestamp    | When was the permission last updated |
 
-#### 2. roles
+#### 2. task
 
-The roles table store the attributes for the different types of **roles**. Contains 5 attributes.
+The task table stores the attributes of the task entity. Contains 7 attributes.
 
-| Name       | Type         | Description                    |
-| ---------- | ------------ | ------------------------------ |
-| id         | bigint(20)   | The role id number             |
-| name       | varchar(255) | The role name                  |
-| guard_name | varchar(255) | The role user-agent            |
-| created_at | timestamp    | When was the role created      |
-| updated_at | timestamp    | When was the role last updated |
-
-#### 3. products
-
-The products table stores the attributes of the **Product** entity. Contains 5 attributes.
-
-| Name       | Type         | Description                       |
-| ---------- | ------------ | --------------------------------- |
-| id         | bigint(20)   | The product's id number           |
-| name       | varchar(255) | The product's name                |
-| detail     | text         | The product details               |
-| created_at | timestamp    | When was the product created      |
-| updated_at | timestamp    | When was the user product updated |
-
-#### 4. permissions
-
-The permissions table store the attributes for the different types of **permissions**. Contains 5 attributes.
-
-| Name       | Type         | Description                          |
-| ---------- | ------------ | ------------------------------------ |
-| id         | bigint(20)   | The permission id number             |
-| name       | varchar(255) | The permission name                  |
-| guard_name | varchar(255) | The permission user-agent            |
-| created_at | timestamp    | When was the permission created      |
-| updated_at | timestamp    | When was the permission last updated |
-
-#### 5. roles_has_permissions
-
-The permissions table is an intermediary between the **permissions table** and **role table**, to define what role has what permissions. Contains 2 attributes.
-
-| Name          | Type       | Description              |
-| ------------- | ---------- | ------------------------ |
-| permission_id | bigint(20) | The permission id number |
-| role_id       | bigint(20) | The role's id number     |
-
-### 6. models_has_roles
-
-The permissions table is an intermediary between the **users table** and **role table**, to define what users has what roles. Contains 3 attributes.
-
-| Name       | Type         | Description          |
-| ---------- | ------------ | -------------------- |
-| role_id    | bigint(20)   | The role's id number |
-| model_type | varchar(255) | The model type       |
-| model_id   | bigint(20)   | The user's id number |
-
-#### 7. models_has_permissions
-
-The permissions table is an intermediary between the **users table** and **permissions table**, to define what users has what permissions. Contains 3 attributes.
-
-| Name          | Type         | Description              |
-| ------------- | ------------ | ------------------------ |
-| permission_id | bigint(20)   | The permission id number |
-| model_type    | varchar(255) | The model type           |
-| model_id      | bigint(20)   | The user's id number     |
+| Name              | Type         | Description                          |
+| ----------        | ------------ | ------------------------------------ |
+| id                | bigint(20)   | The permission id number             |
+| user_id           | bigint(20)   | the user id number                   |
+| title             | varchar(255) | The task title                       |
+| description       | text         | The task description                 |
+| is_completed      | tinyint(1)   | The task completed or not            |
+| created_at        | timestamp    | When was the task created            |
+| updated_at        | timestamp    | When was the permission last updated |
 
 ### External Interfaces
 
