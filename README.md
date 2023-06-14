@@ -105,10 +105,6 @@ This project contains two entities/models, which as below. You can also click on
 
 - [**User**](/blog/app/Models/User.php)<br>
 This entity contains datas relating to authentication such as name, email, and password. This entity also has role attribute which used to differentiate role between users for different permissions.
-> As a new user. create an account with fill the name, email, and password.
-![Result1](https://github.com/Vsollery/Final-Project_FrameworkProg/blob/main/Result/Register_User.png)
-> Then, Try login with fill the email that registered and the password.
-![Result1](https://github.com/Vsollery/Final-Project_FrameworkProg/blob/main/Result/Login_User.png)
 
 - [**Product**](/blog/app/Models/Product.php)<br>
 This entity contains the name and detail of a product that interchangeable. Not much else goes here.
