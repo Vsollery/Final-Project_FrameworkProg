@@ -207,7 +207,7 @@ The users table stores the attributes of the **User** entity. Contains 9 attribu
 | name              | varchar(255) | The permission name                  |
 | email             | varchar(255) | The user's email address             |
 | email_verified_at | timestamp    | When was the email verified          |
-| password         | varchar(255)  | The user's password                  |
+| password          | varchar(255) | The user's password                  |
 | is_admin          | tinyint(1)   | When was the permission last updated |
 | remember_token    | varchar(100) | The user's remember token            |
 | created_at        | timestamp    | When was the user created            |
@@ -225,7 +225,7 @@ The task table stores the attributes of the task entity. Contains 7 attributes.
 | description       | text         | The task description                 |
 | is_completed      | tinyint(1)   | The task completed or not            |
 | created_at        | timestamp    | When was the task created            |
-| updated_at        | timestamp    | When was the permission last updated |
+| updated_at        | timestamp    | When was the task last updated       |
 
 ### External Interfaces
 
