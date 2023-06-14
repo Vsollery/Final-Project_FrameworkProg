@@ -14,6 +14,7 @@
                             </div>
                             <h4 class="mb-2">{{ $user->name }}</h4>
                             <p class="text-muted mb-4">Email <span class="mx-2">|</span> <a href="#!">{{ $user->email }}</a></p>
+                            @if($user->email != 'admin@gmail.com')
                             <div class="d-flex justify-content-between text-center mt-5 mb-2">
                                 <div>
                                     <p class="mb-2 h5">Joined</p>
@@ -23,7 +24,9 @@
                                     <p class="mb-2 h5">Number of Tasks</p>
                                     <p class="text-muted mb-0">{{ $user->tasks->count() }}</p>
                                 </div>
+
                             </div>
+                            @endif
                         </div>
                     </div>
                 @else

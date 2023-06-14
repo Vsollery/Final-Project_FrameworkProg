@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -90,8 +91,15 @@ class TodoController extends Controller
         return back()->with('message', 'Task Deleted');
     }
 
-    public function dashboard(){
-        return view('tasks.index');
+    public function dashboard()
+    {
+        $task = Task::latest()->where('user_id', auth()->user()->id);
+        return view('tasks.index', [
+            "user" => User::where('is_admin', 1)->get(),
+            "tasks" => $task,
+            "tasks_complete" => auth()->user()->tasks()->where('is_completed', 1)->get(),
+            "tasks_incomplete" => auth()->user()->tasks()->where('is_completed', 0)->get(),
+        ]);
     }
 
     public function finished(){
