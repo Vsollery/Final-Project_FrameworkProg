@@ -153,6 +153,35 @@ This project contains two entities/models, which as below. You can also click on
 - [**User**](/blog/app/Models/User.php)<br>
 This entity contains datas relating to authentication such as name, email, and password. This entity also has role attribute which used to differentiate role between users for different permissions.
 
+```
+protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+```
+Using protected function, the name, email, and password can’t accessed externally. This code is used in register.
+
+```
+protected $hidden = [
+        'password',
+        'remember_token',
+```
+It had the same function in above. But, the password is hidden. So, it will replace with dots in order to get protected
+
+```
+protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed'
+```
+When the email verified, it has date time for timestamp. The password is hashed.
+
+```
+public function tasks(){
+        return $this->hasMany(Task::class);
+```
+For the function in tasks, the user can have task more than one
+
 - [**Product**](/blog/app/Models/Product.php)<br>
 This entity contains the name and detail of a product that interchangeable. Not much else goes here.
 
