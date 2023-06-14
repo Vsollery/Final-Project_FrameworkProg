@@ -76,19 +76,17 @@ php artisan serve
 ## Usage
 
 Tambahin Screenshot Serta jelasin fungsi page tersebut
-home
+###home
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/794f9b57-dd3b-4804-b83d-216221b633dc)
-register
+###register
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/48b1fea2-2722-4492-9ea1-42bb8ae839c8)
-login
+###login
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/75980eac-1cf6-4d25-991f-820a3f0e3460)
-after login
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/6b98c3a2-6180-46b1-b058-c5fec79271ea)
-adding new task
+###adding new task
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/834c81d4-b3d1-41e7-8d92-cb2b937db85a)
-after adding
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/0a378f95-6312-4276-9246-38312c8aff14)
-task details + edit
+###task details + edit
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/a107face-24f6-4e4b-a16a-f1b66892309d)
 ![image](https://github.com/Vsollery/Final-Project_FrameworkProg/assets/81525850/ed06d9d2-8e3e-4781-aa57-a11a9b9645ce)
 
