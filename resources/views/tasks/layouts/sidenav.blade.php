@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/about">
+                <a class="nav-link " href="/aboutxa">
                     <span data-feather="user" class="align-text-bottom"></span>
                     About
                 </a>
