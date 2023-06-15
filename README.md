@@ -203,7 +203,7 @@ This controller handles actions relating to the manipulation and validation rega
 
 ### Middlewares
 
-Though there are a lot of middlewares that are used in this project, the three main ones are as follows:
+Though there are a lot of middlewares that are used in this project:
 
 ```
 protected $middlewareAliases = [
