@@ -209,16 +209,22 @@ Though there are a lot of middlewares that are used in this project, the three m
 ...
 protected $middlewareAliases = [
     ...
-    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-    'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+    'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    'admin' => \App\Http\Middleware\isAdmin::class,
 ];
 ...
 ```
 
-- **role**
-- **permission**
-- **role_or_permission**
+- **verified**
+  ...
+    'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+  ```
+  >  it used to make sure that email is registered
+- **admin**
+  ```
+  'admin' => \App\Http\Middleware\isAdmin::class
+  ```
+  > is Admin, the middleware will allow the request to proceed further into the application.
 
 these middlewares handle the multirole and permision management capability of the project.
 
