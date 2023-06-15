@@ -126,25 +126,12 @@ Tambahin Screenshot Serta jelasin fungsi page tersebut
 
 ### Roles Use Case
 
-As an example, you can assign the role to the followings for a typical warehouse management system:
-
-| Role             | Permissions                                                                                                |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- |
-| Admin            | role-list, role-create, role-edit, role-delete, product-list, product-create, product-edit, product-delete |
-| Role Manager     | role-list, role-create, role-edit, role-delete                                                             |
-| Role Observer    | role-list                                                                                                  |
-| Product Manager  | product-list, product-create, product-edit, product-delete                                                 |
-| Product Observer | product-list                                                                                               |
-
-More or less each role use cases are as follows:
-
-- **Admins** should have full access to all the system permissions, starting from manipulating user, roles, and products.
-- **Role Managers** should have full control over all actions relating to roles in the system.
-- **Role Observers** should have access to viewing the types of role in the system, but not action relating to its manipulation.
-- **Product Managers** should have full control over all actions relationg to products in the system.
-- **Product Observers** should have access to viewing the types of products in the system, but not action relating to its manipulation.
-
+- **Admins** are able to view all users, delete users, and change the roles of users.
+- **Logged In User** are able to create, edit, delete, and show details. In additon, they can also discover other users' tasks.
+- **Guest**  are able to only view other users' tasks and they can also register. 
+- 
 ## Breakdown
+
 
 ### Entities
 
