@@ -205,8 +205,7 @@ This controller handles actions relating to the manipulation and validation rega
 
 Though there are a lot of middlewares that are used in this project, the three main ones are as follows:
 
-```php
-...
+```
 protected $middlewareAliases = [
     ...
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
@@ -216,7 +215,7 @@ protected $middlewareAliases = [
 ```
 
 - **verified**
-  ...
+  ```
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
   ```
   >  it used to make sure that email is registered
