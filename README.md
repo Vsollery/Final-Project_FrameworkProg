@@ -264,20 +264,32 @@ This refers to the database mentioned earlier.
 #### User Interfaces
 These are the views located in the resources folder. The project includes multiple different views, including:
 
-+ **Theme Layout**
-  - app.blade.php
-+ **User Module**
-  - index.blade.php
-  - create.blade.php
-  - edit.blade.php
-  - show.blade.php
-+ **Roles Module**
-  - index.blade.php
-  - create.blade.php
-  - edit.blade.php
-  - show.blade.php
-+ **Product Module**
-  - index.blade.php
-  - create.blade.php
-  - edit.blade.php
-  - show.blade.php
+```
+    layouts
+        main.blade.php
+    partials  
+        navbar.blade.php
+    tasks
+      admin
+         index.blade.php
+       layouts
+          header.blade.php
+          main.blade.php
+          sidenav.blade.php
+      todos
+          create.blade.php
+          edit.blade.php
+          finished.blade.php
+          index.blade.php
+          show.blade.php
+          unfinished.blade.php
+       index.blade.php
+  users
+     login.blade.php
+     register.blade.php
+   about.blade.php
+   discover.blade.php
+   home.blade.php
+   show.blade.php
+   welcome.blade.php
+```
