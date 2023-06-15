@@ -129,7 +129,7 @@ Tambahin Screenshot Serta jelasin fungsi page tersebut
 - **Admins** are able to view all users, delete users, and change the roles of users.
 - **Logged In User** are able to create, edit, delete, and show details. In additon, they can also discover other users' tasks.
 - **Guest**  are able to only view other users' tasks and they can also register. 
-- 
+
 ## Breakdown
 
 
@@ -232,8 +232,8 @@ The users table stores the attributes of the **User** entity. Contains 9 attribu
 
 | Name              | Type         | Description                          |
 | ----------        | ------------ | ------------------------------------ |
-| id                | bigint(20)   | The permission id number             |
-| name              | varchar(255) | The permission name                  |
+| id                | bigint(20)   | The user id number             |
+| name              | varchar(255) | The user name                  |
 | email             | varchar(255) | The user's email address             |
 | email_verified_at | timestamp    | When was the email verified          |
 | password          | varchar(255) | The user's password                  |
